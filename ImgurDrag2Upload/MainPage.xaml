@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="ImgurDrag2Upload.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImgurDrag2Upload"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          AllowDrop="True" 
+          Drop="Grid_Drop" 
+          DragOver="Grid_DragOver">
+        <Grid Background="#2ecc71">
+            <TextBlock Padding="10" 
+                       TextWrapping="Wrap" 
+                       Foreground="White"
+                       Text="Drag on bottom to upload and get imgurl link. Just Ctrl + V" 
+                       TextAlignment="Center" />
+        </Grid>
+        <Image x:Name="DroppedImage"
+               Height="200"
+               VerticalAlignment="Top"
+               Margin="20"
+               Source="/Assets/pencil.png"
+               >
+        </Image>
+        <Rectangle Height="1"
+                   Fill="Gray"
+                   Margin="5"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="tblStatus" 
+                   Text="Option: "
+                   Padding="10"/>
+            <Grid Grid.Row="1"
+                  Margin="5">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Content="Full Link Http"
+                             Name="rdbtnFullLink"
+                             />
+                <RadioButton Content="Short Link DB" 
+                             IsChecked="True"
+                             Name="rdbtnShortLink"
+                             Grid.Column="1"/>
+            </Grid>
+        </Grid>
+        <Rectangle Height="1"
+                   Fill="Gray"
+                   Margin="5"/>
+        <TextBox Name="tblLink" 
+                   Padding="10"
+                   Text="Link: "
+                   Margin="5" />
+      
+        <TextBox Name="tblShortLink" 
+                   Padding="10"
+                   Text="Short Link: "
+                   Margin="5" />
+        <Rectangle Height="1"
+                   Fill="Gray"
+                   Margin="5"/>
+        <TextBlock Name="tblStatus2" 
+                   Padding="10"
+                   Text="Status: "
+                   Margin="5" />
+    </StackPanel>
+</Page>
